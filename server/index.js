@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const {
     Cashfree
 } = require('cashfree-pg');
-const { constrainedMemory } = require('process');
+
 
 
 
@@ -12,13 +12,7 @@ const { constrainedMemory } = require('process');
 require('dotenv').config();
 
 const app = express();
-app.use(cors(
-    {
-        origin:{},
-        methods:{"POST","GET"},
-        credentials:true
-    }
-));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
@@ -43,7 +37,7 @@ function generateOrderId() {
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.json('Hello World!');
 })
 
 
