@@ -42,14 +42,14 @@ function generateOrderId() {
 }
 
 
-app.get('https://payment-gateway-app-frontend.vercel.app/', (req, res) => {
+app.get('/', (req, res) => {
     res.json('Hello World!');
 })
 
 
 
 
-app.post('https://payment-gateway-app-frontend.vercel.app/payment', async (req, res) => {
+app.post('/payment', async (req, res) => {
 
 
     try {
@@ -82,7 +82,7 @@ app.post('https://payment-gateway-app-frontend.vercel.app/payment', async (req, 
 
 })
 
-app.post('https://payment-gateway-app-frontend.vercel.app/verify', async (req, res) => {
+app.post('/verify', async (req, res) => {
 
     try {
 
