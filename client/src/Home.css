@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Freehand&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Roboto+Slab:wght@100..900&family=Style+Script&display=swap');
+/* Navbar styles */
+.navbar {
+    background-color: #333;
+    /* padding: 1rem; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    margin: 10px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+  }
+  
+  .logo img {
+    width: 130px;
+    /* height: 40px; */
+  }
+  
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    margin-right: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #ccc;
+  }
+  
+  .nav-links a.active {
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  /* Home button styles */
+  
+  .donate-btn {
+    font-family:Pacifico ;
+    font-weight: bolder;
+    border:solid rgb(255, 255, 255) 2px;
+    outline: none;
+    border-radius: 5px;
+    background-color: hsl(296, 95%, 48%);
+    color: hsl(0, 0%, 100%);
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: .1s ease-in;
+  }
+  
+  .donate-btn:hover {
+    background-color: hsl(265, 91%, 42%);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .donate-btn:active {
+    background-color: #b05e00;
+    
+  }
+
+  .mainDiv{
+    min-width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('D:\REACT\Payment Gateway CashFree\client\src\assets\background.webp');
+  
+    background-size: cover;
+    /* background-position: center; */
+  }
+
+  /* Make the navbar responsive */
+
+@media (max-width: 768px) {
+    .main-div{
+    
+      background-position: 25% 50%;
+    }
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+    .nav-links {
+      flex-direction: row;
+      gap:50px;
+      margin-right: 0px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    .nav-links li {
+      margin-right: 0;
+    }
+    .nav-links a {
+      font-size: 14px;
+    }
+    .logo{
+      margin:0;
+      margin-top: 10px;
+      text-align: center;
+    }
+  
+  }
