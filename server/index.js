@@ -12,13 +12,7 @@ const { constrainedMemory } = require('process');
 require('dotenv').config();
 
 const app = express();
-app.use(cors(
-    {
-        origin:{"https://payment-gateway-app-frontend.vercel.app/"},
-        methods:{"POST","GET"},
-        credentials:true
-    }
-));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
