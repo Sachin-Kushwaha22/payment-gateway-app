@@ -106,7 +106,7 @@ function App() {
   const verifyPayment = async () => {
     try {
 
-      let res = await axios.post("https://payment-gateway-app-server-0.vercel.app/verify", {
+      let res = await axios.post("/verify", {
         orderId: orderId
       })
 
