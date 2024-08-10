@@ -14,7 +14,7 @@ require('dotenv').config();
 const app = express();
 app.use(cors(
     {
-        origin:{"https://payment-gateway-app-frontend.vercel.app"},
+        origin:{"https://payment-gateway-app-frontend.vercel.app/"},
         methods:{"POST","GET"},
         credentials:true
     }
