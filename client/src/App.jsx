@@ -87,7 +87,7 @@ function App() {
 
   const getSessionId = async () => {
     try {
-      let res = await axios.post("http://localhost:8000/payment", data)
+      let res = await axios.post("https://payment-gateway-app-server-0.vercel.app/payment", data)
 
       if (res.data && res.data.payment_session_id) {
 
@@ -106,7 +106,7 @@ function App() {
   const verifyPayment = async () => {
     try {
 
-      let res = await axios.post("http://localhost:8000/verify", {
+      let res = await axios.post("https://payment-gateway-app-server-0.vercel.app/verify", {
         orderId: orderId
       })
 
