@@ -8,13 +8,13 @@ import { load } from '@cashfreepayments/cashfree-js'
 import jsPDF from 'jspdf';
 
 
-function Invoice(orderId,data) {
+function Invoice(orderId, data) {
 
   const invoiceContainer = document.getElementById('invoice-container');
   invoiceContainer.innerHTML = '';
-  
 
-  const doc = new jsPDF('p', 'mm', [210 , 297]); // A4 size
+
+  const doc = new jsPDF('p', 'mm', [210, 297]); // A4 size
 
   // Add invoice header
   doc.setFontSize(20);
@@ -52,7 +52,7 @@ function Invoice(orderId,data) {
   iframe.className = 'invoice-iframe';
 
   // Add the iframe to the webpage
-  
+
   invoiceContainer.appendChild(iframe);
 
   iframe.addEventListener('load', () => {
@@ -87,7 +87,7 @@ function App() {
 
   const getSessionId = async () => {
     try {
-      let res = await axios.post("http://localhost:8000/payment", data)
+      let res = await axios.post("https://payment-gateway-app.onrender.com/payment", data)
 
       if (res.data && res.data.payment_session_id) {
 
@@ -106,7 +106,7 @@ function App() {
   const verifyPayment = async () => {
     try {
 
-      let res = await axios.post("http://localhost:8000/verify", {
+      let res = await axios.post("https://payment-gateway-app.onrender.com/verify", {
         orderId: orderId
       })
 
@@ -143,7 +143,7 @@ function App() {
         try {
           if (res && res.paymentDetails.paymentMessage) {
             alert('Payment successful !!')
-            
+
             document.getElementById('amount').value = '';
             document.getElementById('name').value = '';
             document.getElementById('phone').value = '';
@@ -154,11 +154,11 @@ function App() {
             setAmountInvalid('');
             setNameWarning('');
             setPhoneWarning('');
-            
+
             verifyPayment(orderId)
             alert('Pdf Generated !!')
-            Invoice(orderId,data)
-            
+            Invoice(orderId, data)
+
           }
         } catch (error) {
           if (res && res.error.message) {
@@ -176,7 +176,7 @@ function App() {
             setNameWarning('');
             setPhoneWarning('');
 
-            
+
           }
         }
 
@@ -255,54 +255,54 @@ function App() {
 
   return (
     <>
-    <div style={{width:'100%',maxWidth:'100%', backgroundColor:'white'}}>
-      <div className='container'>
-      <Navbar />
+      <div style={{ width: '100%', maxWidth: '100%', backgroundColor: 'white' }}>
+        <div className='container'>
+          <Navbar />
 
 
 
-        <form className='main-div'>
+          <form className='main-div'>
 
-          <h1>Enter details for Donation</h1>
+            <h1>Enter details for Donation</h1>
 
-          <div className='donation-amount'>
-            <div style={{ display: 'flex' }}>
-              <p className='currency-symbol'>₹</p>
-              <input onChange={amountchange} id='amount' className='amount-input' type="number" name='amount' />
-            </div>
-
-            <div className='warning-text'>{amountsvg} {amountWarning}</div>
-            <div className='warning-text'>{amountInvalidSvg} {amountInvalid}</div>
-          </div>
-
-          <div className='basic-details'>
-            <div className='basic-details name'>
-              <input onChange={namechange} id='name' className='basic-details-input' type="text" name='name' placeholder='Name' />
-              <div className='warning-text'>{namesvg} {nameWarning}</div>
-            </div>
-
-            <div className='phone-number'>
+            <div className='donation-amount'>
               <div style={{ display: 'flex' }}>
-                <p className='phone-number-country-code'>+91</p>
-                <input onChange={phonechange} id='phone' className='phone-number-input' type="number" name='phone' placeholder='Mobile Number' />
+                <p className='currency-symbol'>₹</p>
+                <input onChange={amountchange} id='amount' className='amount-input' type="number" name='amount' />
               </div>
 
-              <div className='warning-text'>{phonesvg}{phoneWarning}</div>
+              <div className='warning-text'>{amountsvg} {amountWarning}</div>
+              <div className='warning-text'>{amountInvalidSvg} {amountInvalid}</div>
             </div>
-            <input onChange={(e) => setData({ ...data, email: e.target.value })} id='email' className='basic-details-input email' type="email" name='email' placeholder='Email (optional)' />
 
-          </div>
-          <div className="card">
-            <button className='pay-button' onClick={handleClick}>
-              Pay now
-            </button>
+            <div className='basic-details'>
+              <div className='basic-details name'>
+                <input onChange={namechange} id='name' className='basic-details-input' type="text" name='name' placeholder='Name' />
+                <div className='warning-text'>{namesvg} {nameWarning}</div>
+              </div>
 
-          </div>
-        </form>
-        
+              <div className='phone-number'>
+                <div style={{ display: 'flex' }}>
+                  <p className='phone-number-country-code'>+91</p>
+                  <input onChange={phonechange} id='phone' className='phone-number-input' type="number" name='phone' placeholder='Mobile Number' />
+                </div>
+
+                <div className='warning-text'>{phonesvg}{phoneWarning}</div>
+              </div>
+              <input onChange={(e) => setData({ ...data, email: e.target.value })} id='email' className='basic-details-input email' type="email" name='email' placeholder='Email (optional)' />
+
+            </div>
+            <div className="card">
+              <button className='pay-button' onClick={handleClick}>
+                Pay now
+              </button>
+
+            </div>
+          </form>
+
+        </div>
       </div>
-    </div>
-    <div id='invoice-container'></div>
+      <div id='invoice-container'></div>
     </>
   )
 }
