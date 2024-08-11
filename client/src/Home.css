@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Freehand&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Roboto+Slab:wght@100..900&family=Style+Script&display=swap');
 /* Navbar styles */
 .navbar {
-    background-color: #333;
+    background-color: #333333;
     /* padding: 1rem; */
     display: flex;
     justify-content: space-between;
@@ -51,12 +51,12 @@
   /* Home button styles */
   
   .donate-btn {
-    font-family:Pacifico ;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
     font-weight: bolder;
-    border:solid rgb(255, 255, 255) 2px;
+    border:solid rgb(173, 164, 164) 1px;
     outline: none;
     border-radius: 5px;
-    background-color: hsl(296, 95%, 48%);
+    background-color: hsla(0, 0%, 23%, 0.326);
     color: hsl(0, 0%, 100%);
     padding: 10px 20px;
     font-size: 1.5rem;
@@ -65,26 +65,23 @@
   }
   
   .donate-btn:hover {
-    background-color: hsl(265, 91%, 42%);
+    background-color: hsl(300, 1%, 29%);
     color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
   .donate-btn:active {
-    background-color: #b05e00;
+    background-color: #696968;
     
   }
-
+/* 
   .mainDiv{
     min-width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('D:\REACT\Payment Gateway CashFree\client\src\assets\background.webp');
-  
-    background-size: cover;
-    /* background-position: center; */
-  }
+    background-color: #a0a09e;
+  } */
 
   /* Make the navbar responsive */
 
@@ -116,4 +113,77 @@
       text-align: center;
     }
   
+  }
+
+  .mainDiv {
+    width: 100%;
+    height: 100vh;
+    /* background-color: #ffffff; */
+    
+  }
+  
+  .hero-section {
+    /* background-color: #ffffff; */
+    padding: 50px 0;
+    background: linear-gradient(rgba(170, 170, 170, 0.096), rgba(92, 92, 92, 0.589)), url('D:\REACT\Payment Gateway CashFree\client\src\assets\background.jpg');
+  background-size: cover;
+  background-position: center;
+  }
+  
+  .container-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .col-md-6 {
+    flex-basis: 50%;
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .description {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .donate-btn {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .donate-btn:hover {
+    background-color: #3e8e41;
+  }
+  
+  .hero-image {
+    width: 590px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-image: url("D:\REACT\Payment Gateway CashFree\client\src\assets\500x500.png");
+    background-position: center;
+    background-size: cover;
+    border: solid white;
   }

@@ -263,8 +263,8 @@ function App() {
 
           <form className='main-div'>
 
-            <h1>Enter details for Donation</h1>
-
+            <div className='main-div-h1'><h1>DONATION FORM</h1></div>
+          <div className='data-filling'>
             <div className='donation-amount'>
               <div style={{ display: 'flex' }}>
                 <p className='currency-symbol'>₹</p>
@@ -297,6 +297,7 @@ function App() {
                 Pay now
               </button>
 
+            </div>
             </div>
           </form>
 
